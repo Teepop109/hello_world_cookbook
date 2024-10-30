@@ -1,53 +1,38 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-C61 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 | Linux |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | --------- | -------- | -------- | -------- | -------- | ----- |
+## ESP32-hello-world - `hello_world`
+ESP32-hello-world เป็นตัวอย่างพื้นฐานที่ใช้ไมโครคอนโทรลเลอร์ ESP32 เพื่อทำความเข้าใจพื้นฐานของการพัฒนาและการเขียนโปรแกรมด้วย ESP32 โครงการนี้มักจะเน้นการสื่อสารพื้นฐาน เช่น การแสดงข้อความใน Serial Monitor เป็นต้น
+## ขั้นตอนการใช้งาน
+1. เริ่มต้นโดยการเลือกตัวอย่าง `hello_world`
+# ![Screenshot 2024-10-30 215803](https://github.com/user-attachments/assets/f838d0cc-f0a4-4743-af1b-b4194f0a8b73)
+# ![Screenshot 2024-10-30 215812](https://github.com/user-attachments/assets/b905d39e-b4cc-429d-9cac-5cbe809b4753)
 
-# Hello World Example
+2. หลังจากเลือกตัวอย่างแล้ว ให้กดปุ่ม **Create**
+# ![Screenshot 2024-10-30 215817](https://github.com/user-attachments/assets/ec1d1641-afc3-4e16-821e-b24bbcc5f7c6)
 
-Starts a FreeRTOS task to print "Hello World".
+3. ตรวจสอบโค้ดในไฟล์ ` hello_world_main.c` สามารถแก้ไขเพื่อให้แสดงผลข้อความต่างๆ นอกเหนือจาก hello world และให้โชว์ ข้อมูลต่างๆ ของ ESP32
+# ![Screenshot 2024-10-30 215919](https://github.com/user-attachments/assets/c80c3f4a-85d2-4b4f-82ef-114778939c63)
+# ![Screenshot 2024-10-30 215930](https://github.com/user-attachments/assets/b78cbe63-6be0-4fb3-8b6b-5c6e7e26aa62)
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+ผลการทำงานจะเเสดงคำว่า Hello world! จากนั้นนับถอยหลัง restart การทำงาน
 
-## How to use example
+กด Build และรันโปรแกรม จากนั้นเลือก **UART** ผลการทำงานจะเป็นดังนี้
+# ![Screenshot 2024-10-30 220206](https://github.com/user-attachments/assets/0c0e5af3-ce8c-4bc9-a31e-e138908ca943)
 
-Follow detailed instructions provided specifically for this example.
-
-Select the instructions depending on Espressif chip installed on your development board:
-
-- [ESP32 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html)
-- [ESP32-S2 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/get-started/index.html)
-
-
-## Example folder contents
-
-The project **hello_world** contains one source file in C language [hello_world_main.c](main/hello_world_main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt` files that provide set of directives and instructions describing the project's source files and targets (executable, library, or both).
-
-Below is short explanation of remaining files in the project folder.
+# การเเก้ไข
+เมื่อแก้ไขโค้ดใน main/hello_world_main.c ให้แสดงผล Hi My name is Teepop พร้อมสูตรคูณ แม่ 25 จากนั้นนับถอยหลัง restart การทำงาน
+# ![Screenshot 2024-10-30 220738](https://github.com/user-attachments/assets/7e19265f-3cb7-4d87-8cf6-87482c36484f)
 
 ```
-├── CMakeLists.txt
-├── pytest_hello_world.py      Python script used for automated testing
-├── main
-│   ├── CMakeLists.txt
-│   └── hello_world_main.c
-└── README.md                  This is the file you are currently reading
+printf("Hello world!\n");
+    printf("Hi My name is Teepop\n"); 
+
+    for (int i = 1; i <= 12; i++) {
+        printf("25 x %d = %d\n", i, i * 25);
+    }
 ```
 
-For more information on structure and contents of ESP-IDF projects, please refer to Section [Build System](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html) of the ESP-IDF Programming Guide.
+หลังจากนั้น build flash เพื่อดูผลการทำงาน
+# ผลการรันตัวอย่างการเเก้ไข ดังนี้
+# ![Screenshot 2024-10-30 220717](https://github.com/user-attachments/assets/51dd6679-b55b-4e31-9bf0-32a90835adfc)
 
-## Troubleshooting
-
-* Program upload failure
-
-    * Hardware connection is not correct: run `idf.py -p PORT monitor`, and reboot your board to see if there are any output logs.
-    * The baud rate for downloading is too high: lower your baud rate in the `menuconfig` menu, and try again.
-
-## Technical support and feedback
-
-Please use the following feedback channels:
-
-* For technical queries, go to the [esp32.com](https://esp32.com/) forum
-* For a feature request or bug report, create a [GitHub issue](https://github.com/espressif/esp-idf/issues)
-
-We will get back to you as soon as possible.
+### สรุปการทดลอง
+การทดลอง Hello World Example บน ESP32 เป็นขั้นพื้นฐานที่ช่วยให้เราเข้าใจการเชื่อมต่อและการเขียนโค้ดเบื้องต้นบนบอร์ด ESP32 ได้ดี เมื่ออัปโหลดโค้ดสำเร็จ และเปิด Serial Monitor จะเห็นข้อความ "Hello, World!" ถูกพิมพ์ออกมาตามที่ตั้งไว้ในโปรแกรม ซึ่งแสดงว่าการเชื่อมต่อและการอัปโหลดโค้ดทำงานได้อย่างถูกต้อง ถ้ามีความต้องการจะเปลี่ยนแปลงข้อความหรือแก้ไขระยะเวลาในการ restart ก็สามารถที่จะปรับเปลี่ยนได้ตามความต้องการดังตัวอย่างที่มีการเเก้ไขให้ให้แสดงผล Hi My name is Teepop พร้อมสูตรคูณ แม่ 25 จากนั้นนับถอยหลัง restart การทำงาน
